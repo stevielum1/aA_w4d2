@@ -11,12 +11,27 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+require 'action_view'
 
 class Cat < ApplicationRecord
+  
+  include ActionView::Helpers::DateHelper
+  
+  CAT_COLORS = %w(black brown white orange gray)
+  
   validates :birth_date, :name, :color, :sex, presence: true
   validates :color, inclusion: { in: CAT_COLORS }
   validates :sex, inclusion: { in: %w(M F) }
   
-  CAT_COLORS = %w(black brown white orange gray)
+  def self.colors
+    CAT_COLORS
+  end
   
+  def age
+    time_ago_in_words(birth_date)
+  end
+  
+  def birth_date_s
+    birth_date.to_s
+  end
 end
