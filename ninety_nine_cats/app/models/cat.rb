@@ -23,6 +23,12 @@ class Cat < ApplicationRecord
   validates :color, inclusion: { in: CAT_COLORS }
   validates :sex, inclusion: { in: %w(M F) }
   
+  has_many :rentals,
+  primary_key: :id,
+  foreign_key: :cat_id,
+  class_name: :CatRentalRequest,
+  dependent: :destroy
+  
   def self.colors
     CAT_COLORS
   end

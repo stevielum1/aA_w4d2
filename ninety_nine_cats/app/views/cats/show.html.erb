@@ -27,3 +27,27 @@
       <td> <%= @cat.sex %> </td>
     </tr>
 </table>
+
+<h1>Rental Requests</h1>
+<% if @requests.empty? %>
+  <p><%= @cat.name %> has no rental requests</p>
+  
+<% else %>
+  <table>
+    <tr>
+      <!-- <th>User</th> -->
+      <th>Start_Date</th>
+      <th>End_Date</th>
+      <th>Status</th>
+    </tr>
+    <% @requests.each do |request| %>
+      <tr>
+        <td> <%= request.start_date %> </td>
+        <td> <%= request.end_date %> </td>
+        <td> <%= request.status %> </td>
+      </tr>
+    <% end %>
+    
+  </table>
+  
+<% end %>
