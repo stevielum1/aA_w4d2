@@ -24,18 +24,6 @@ class CatRentalRequestsController < ApplicationController
     end
   end
   
-  def edit
-    
-  end
-  
-  def update
-    
-  end
-  
-  def destroy
-    
-  end
-  
   def cat_rental_params
     params.require(:cat_rental_request).permit(:cat_id, :start_date, :end_date)
   end

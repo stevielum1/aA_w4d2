@@ -31,7 +31,6 @@ class CatRentalRequest < ApplicationRecord
     overlapping_requests.where(status:'APPROVED')
   end
 
-  
   private
   
   def does_not_overlap_approved_request
